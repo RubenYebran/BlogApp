@@ -1,4 +1,4 @@
-package com.example.blogapp.data.remote
+package com.example.blogapp.data.remote.home
 
 import com.example.blogapp.core.Resource
 import com.example.blogapp.data.model.Post
@@ -8,6 +8,7 @@ import kotlinx.coroutines.tasks.await
 class HomeScreenDataSource {
 
     suspend fun getLatestPosts(): Resource<List<Post>>{
+
         val postList = mutableListOf<Post>()
 
         val querySnatpshot = FirebaseFirestore.getInstance().collection("posts").get().await() //Almacenamos los valores de la Query.

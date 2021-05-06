@@ -6,9 +6,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.blogapp.R
-import com.example.blogapp.data.remote.HomeScreenDataSource
+import com.example.blogapp.data.remote.home.HomeScreenDataSource
 import com.example.blogapp.databinding.FragmentHomeScreenBinding
-import com.example.blogapp.domain.HomeScreenRepoImpl
+import com.example.blogapp.domain.home.HomeScreenRepoImpl
 import com.example.blogapp.presentation.HomeScreenViewModel
 import com.example.blogapp.presentation.HomeScreenViewModelFactory
 import com.example.blogapp.ui.main.adapter.HomeScreenAdapter

@@ -1,4 +1,4 @@
-package com.example.blogapp.ui.home
+package com.example.blogapp.ui.main
 
 import android.os.Bundle
 import android.view.View
@@ -11,8 +11,7 @@ import com.example.blogapp.databinding.FragmentHomeScreenBinding
 import com.example.blogapp.domain.HomeScreenRepoImpl
 import com.example.blogapp.presentation.HomeScreenViewModel
 import com.example.blogapp.presentation.HomeScreenViewModelFactory
-import com.example.blogapp.ui.home.adapter.HomeScreenAdapter
-import java.util.*
+import com.example.blogapp.ui.main.adapter.HomeScreenAdapter
 import androidx.lifecycle.Observer
 import com.example.blogapp.core.Resource
 

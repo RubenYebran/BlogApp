@@ -9,8 +9,8 @@ import com.example.blogapp.R
 import com.example.blogapp.data.remote.home.HomeScreenDataSource
 import com.example.blogapp.databinding.FragmentHomeScreenBinding
 import com.example.blogapp.domain.home.HomeScreenRepoImpl
-import com.example.blogapp.presentation.HomeScreenViewModel
-import com.example.blogapp.presentation.HomeScreenViewModelFactory
+import com.example.blogapp.presentation.main.HomeScreenViewModel
+import com.example.blogapp.presentation.main.HomeScreenViewModelFactory
 import com.example.blogapp.ui.main.adapter.HomeScreenAdapter
 import androidx.lifecycle.Observer
 import com.example.blogapp.core.Resource

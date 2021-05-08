@@ -32,20 +32,23 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
         binding = FragmentHomeScreenBinding.bind(view)
 
         viewModel.fetchLatestPost().observe(viewLifecycleOwner, Observer { result ->
-            when (result){
+            when (result) {
                 is Resource.Loading -> {
-                    binding.progressBar.visibility =  View.VISIBLE
+                    binding.progressBar.visibility = View.VISIBLE
                 }
                 is Resource.Success -> {
-                    binding.progressBar.visibility =  View.GONE
+                    binding.progressBar.visibility = View.GONE
                     binding.rvHome.adapter = HomeScreenAdapter(result.data)
                 }
                 is Resource.Failure -> {
-                    binding.progressBar.visibility =  View.GONE
-                    Toast.makeText(requireContext(), "Ocurrio un Error: ${result.exception}", Toast.LENGTH_SHORT).show()
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(
+                        requireContext(),
+                        "Ocurrio un Error: ${result.exception}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         })
     }
-
 }

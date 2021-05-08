@@ -34,6 +34,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding = FragmentLoginBinding.bind(view)
         //isUserLoggedIn()
         login()
+        signUp()
     }
 
     private fun isUserLoggedIn() {
@@ -48,6 +49,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val password = binding.etPassword.text.toString().trim()
             validateCredentials(email, password)
             signIn(email, password)
+        }
+    }
+
+    private fun signUp() {
+        binding.tvSignUp.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }
 

@@ -2,10 +2,10 @@ package com.example.blogapp.presentation.auth
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.blogapp.domain.auth.LoginRepo
+import com.example.blogapp.domain.auth.AuthRepo
 
-class LoginScreenViewModelFactory(private val repo: LoginRepo) : ViewModelProvider.Factory {
+class AuthFactoryViewModel(private val repo: AuthRepo) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return LoginScreenViewModel(repo) as T
+        return AuthViewModel(repo) as T
     }
 }

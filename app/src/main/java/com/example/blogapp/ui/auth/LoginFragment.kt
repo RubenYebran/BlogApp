@@ -13,7 +13,7 @@ import com.example.blogapp.data.remote.auth.AuthDataSource
 import com.example.blogapp.databinding.FragmentLoginBinding
 import com.example.blogapp.domain.auth.AuthRepoImpl
 import com.example.blogapp.presentation.auth.AuthViewModel
-import com.example.blogapp.presentation.auth.AuthFactoryViewModel
+import com.example.blogapp.presentation.auth.AuthViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -22,7 +22,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private val firebaseAuth by lazy { FirebaseAuth.getInstance() }
 
     private val viewModel by viewModels<AuthViewModel> {
-        AuthFactoryViewModel(
+        AuthViewModelFactory(
             AuthRepoImpl(
                 AuthDataSource()
             )

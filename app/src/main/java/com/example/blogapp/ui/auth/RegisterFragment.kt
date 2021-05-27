@@ -9,7 +9,7 @@ import com.example.blogapp.R
 import com.example.blogapp.data.remote.auth.AuthDataSource
 import com.example.blogapp.databinding.FragmentRegisterBinding
 import com.example.blogapp.domain.auth.AuthRepoImpl
-import com.example.blogapp.presentation.auth.AuthFactoryViewModel
+import com.example.blogapp.presentation.auth.AuthViewModelFactory
 import com.example.blogapp.presentation.auth.AuthViewModel
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -20,7 +20,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     private lateinit var binding: FragmentRegisterBinding
 
     private val viewModel by viewModels<AuthViewModel> {
-        AuthFactoryViewModel(
+        AuthViewModelFactory(
             AuthRepoImpl(
                 AuthDataSource()
             )

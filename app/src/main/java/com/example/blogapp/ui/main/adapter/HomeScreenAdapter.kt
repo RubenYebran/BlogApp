@@ -33,7 +33,8 @@ class HomeScreenAdapter(private val postList: List<Post>) :
         override fun bind(item: Post) {
             Glide.with(context).load(item.post_image).centerCrop().into(binding.postImage)
             Glide.with(context).load(item.profile_picture).centerCrop().into(binding.profilePicture)
-            binding.profileName.text = item.profile_name
+            binding.postDescription.text = item.postDescription
+            binding.profileName.text = if(item.postDescription.isEmpty())"" else item.postDescription
             binding.postTimestamp.text = "Hace 2 horas."
         }
     }

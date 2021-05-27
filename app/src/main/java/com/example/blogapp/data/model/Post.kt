@@ -11,5 +11,7 @@ data class Post(
     @SerializedName("author")
     val post_timestamp: Timestamp? = null,
     @SerializedName("author")
-    val post_image: String = ""
+    val post_image: String = "",
+    @SerializedName("postDescription")
+    val postDescription: String = ""
 )

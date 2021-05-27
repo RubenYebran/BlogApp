@@ -2,6 +2,7 @@ package com.example.blogapp.ui.main.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -27,14 +28,23 @@ class HomeScreenAdapter(private val postList: List<Post>) :
     override fun getItemCount() = postList.size
 
     private inner class HomeScreenViewHolder(
+
         val binding: PostItemViewBinding,
         val context: Context
+
     ) : BaseViewHolder<Post>(binding.root) {
+
         override fun bind(item: Post) {
+
             Glide.with(context).load(item.post_image).centerCrop().into(binding.postImage)
             Glide.with(context).load(item.profile_picture).centerCrop().into(binding.profilePicture)
-            binding.postDescription.text = item.postDescription
-            binding.profileName.text = if(item.postDescription.isEmpty())"" else item.postDescription
+            binding.profileName.text = item.profile_name
+
+            if(item.post_description.isEmpty()){
+                binding.postDescription.visibility = View.GONE
+            }else{
+                binding.postDescription.text = item.post_description
+            }
             binding.postTimestamp.text = "Hace 2 horas."
         }
     }

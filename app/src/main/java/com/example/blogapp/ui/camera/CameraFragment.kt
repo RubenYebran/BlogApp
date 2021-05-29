@@ -3,6 +3,7 @@ package com.example.blogapp.ui.camera
 import android.app.Activity.RESULT_OK
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
@@ -31,7 +32,8 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK){
-
+            val imageBitmap = data?.extras?.get("data") as Bitmap
+            binding.imgAddPhoto.setImageBitmap(imageBitmap)
         }
     }
 }

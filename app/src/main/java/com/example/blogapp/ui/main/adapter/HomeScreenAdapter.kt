@@ -30,9 +30,9 @@ class HomeScreenAdapter(private val postList: List<Post>) :
     private inner class HomeScreenViewHolder(
 
         val binding: PostItemViewBinding,
-        val context: Context
+        val context: Context,
 
-    ) : BaseViewHolder<Post>(binding.root) {
+        ) : BaseViewHolder<Post>(binding.root) {
 
         override fun bind(item: Post) {
 
@@ -40,9 +40,9 @@ class HomeScreenAdapter(private val postList: List<Post>) :
             Glide.with(context).load(item.profile_picture).centerCrop().into(binding.profilePicture)
             binding.profileName.text = item.profile_name
 
-            if(item.post_description.isEmpty()){
+            if (item.post_description.isEmpty()) {
                 binding.postDescription.visibility = View.GONE
-            }else{
+            } else {
                 binding.postDescription.text = item.post_description
             }
             binding.postTimestamp.text = "Hace 2 horas."

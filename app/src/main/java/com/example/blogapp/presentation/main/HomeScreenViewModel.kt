@@ -7,11 +7,11 @@ import com.example.blogapp.domain.home.HomeScreenRepo
 import kotlinx.coroutines.Dispatchers
 
 class HomeScreenViewModel(private val repo: HomeScreenRepo) : ViewModel() {
-    fun fetchLatestPost() = liveData(Dispatchers.IO){
+    fun fetchLatestPost() = liveData(Dispatchers.IO) {
         emit(Result.Loading())
         try {
             emit(repo.getLatestPost())
-        }catch (e: Exception){
+        } catch (e: Exception) {
             emit(Result.Failure(e))
         }
     }

@@ -22,16 +22,18 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         binding = FragmentCameraBinding.bind(view)
 
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        try{
-            startActivityForResult(takePictureIntent,REQUEST_IMAGE_CAPTURE)
-        }catch (e:ActivityNotFoundException){
-            Toast.makeText(requireContext(), "No se encontro ninguna app para abrir la camara", Toast.LENGTH_SHORT).show()
+        try {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(requireContext(),
+                "No se encontro ninguna app para abrir la camara",
+                Toast.LENGTH_SHORT).show()
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK){
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             binding.imgAddPhoto.setImageBitmap(imageBitmap)
         }

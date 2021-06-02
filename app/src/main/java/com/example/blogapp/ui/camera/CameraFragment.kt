@@ -15,13 +15,16 @@ import com.example.blogapp.databinding.FragmentCameraBinding
 class CameraFragment : Fragment(R.layout.fragment_camera) {
 
     private lateinit var binding: FragmentCameraBinding
+
     private val REQUEST_IMAGE_CAPTURE = 1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding = FragmentCameraBinding.bind(view)
 
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+
         try {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
         } catch (e: ActivityNotFoundException) {
@@ -33,6 +36,7 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             binding.imgAddPhoto.setImageBitmap(imageBitmap)

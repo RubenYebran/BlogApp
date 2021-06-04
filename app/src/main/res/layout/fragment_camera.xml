@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/img_add_photo"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="260dp"
         android:text="Camera Fragment" />
 
     <EditText
@@ -25,6 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_margin="16dp"
         android:text="Upload Photo" />
 
 </LinearLayout>

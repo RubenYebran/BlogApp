@@ -40,6 +40,8 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             binding.imgAddPhoto.setImageBitmap(imageBitmap)
+
+            binding.imgAddPhoto.layoutParams.height = 150
         }
     }
 }

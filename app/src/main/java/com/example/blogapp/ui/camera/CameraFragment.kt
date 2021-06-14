@@ -1,5 +1,6 @@
 package com.example.blogapp.ui.camera
 
+import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -14,15 +15,14 @@ import com.example.blogapp.databinding.FragmentCameraBinding
 
 class CameraFragment : Fragment(R.layout.fragment_camera) {
 
+    private val REQUEST_IMAGE_CAPTURE = 2
+    private var bitmap:Bitmap? = null
     private lateinit var binding: FragmentCameraBinding
-
-    private val REQUEST_IMAGE_CAPTURE = 1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentCameraBinding.bind(view)
-
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
         try {
@@ -39,9 +39,8 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
-            binding.imgAddPhoto.setImageBitmap(imageBitmap)
-
-            binding.imgAddPhoto.layoutParams.height = 150
+            binding.postImage.setImageBitmap(imageBitmap)
+            bitmap =  imageBitmap
         }
     }
 }

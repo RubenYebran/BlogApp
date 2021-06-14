@@ -6,6 +6,6 @@ import com.example.blogapp.domain.auth.AuthRepo
 
 class AuthViewModelFactory(private val repo: AuthRepo) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return AuthViewModel(repo) as T
+        return modelClass.getConstructor(AuthRepo::class.java).newInstance(repo)
     }
 }

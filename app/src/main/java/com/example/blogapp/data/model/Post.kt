@@ -13,5 +13,7 @@ data class Post(
     @SerializedName("author")
     val post_image: String = "",
     @SerializedName("postDescription")
-    val post_description: String = ""
+    val post_description: String = "",
+    @SerializedName("uid")
+    val uid: String = ""
 )

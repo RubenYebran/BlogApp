@@ -14,6 +14,8 @@ import com.example.blogapp.presentation.main.HomeScreenViewModel
 import com.example.blogapp.presentation.main.HomeScreenViewModelFactory
 import com.example.blogapp.ui.main.adapter.HomeScreenAdapter
 import androidx.lifecycle.Observer
+import com.example.blogapp.core.hide
+import com.example.blogapp.core.show
 
 
 class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
@@ -38,6 +40,12 @@ class HomeScreenFragment : Fragment(R.layout.fragment_home_screen) {
                 }
                 is Result.Success -> {
                     binding.progressBar.visibility = View.GONE
+                    if(result.data.isEmpty()){
+                        binding.emptyContainer.show()
+                        return@Observer
+                    }else{
+                        binding.emptyContainer.hide()
+                    }
                     binding.rvHome.adapter = HomeScreenAdapter(result.data)
                 }
                 is Result.Failure -> {

@@ -4,13 +4,13 @@ import com.google.firebase.Timestamp
 import com.google.gson.annotations.SerializedName
 
 data class Post(
-    @SerializedName("author")
+    @SerializedName("profile_picture")
     val profile_picture: String = "",
-    @SerializedName("author")
+    @SerializedName("profile_name")
     val profile_name: String = "",
-    @SerializedName("author")
-    val post_timestamp: Timestamp? = null,
-    @SerializedName("author")
+    @SerializedName("created_at")
+    val created_at: Timestamp? = null,
+    @SerializedName("post_image")
     val post_image: String = "",
     @SerializedName("postDescription")
     val post_description: String = "",
